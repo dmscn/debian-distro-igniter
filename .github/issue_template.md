@@ -1,7 +1,5 @@
 ## Prerequisites
 
-Please, assign your self to the issue and be sure to label it.
-
 - [ ] I am running the latest version
 - [ ] I checked the documentation/README and found no answer
 - [ ] I checked to make sure that was no equal issue
@@ -15,11 +13,11 @@ Please, assign your self to the issue and be sure to label it.
 
 ### - Expected:
 
-Explain here how it should be working
+> Explain here how it should be working
 
 ### - Current:
 
-Explain here how it is working
+> Explain here how it is working
 
 ## Steps to reproduce
 
@@ -29,11 +27,11 @@ Explain here how it is working
 
 ## Machine:
 
-Please, provide your context, such as firmware version, OS, etc..
+> Please, provide your context, such as firmware version, OS, etc..
 
 ## Logs:
 
-Describe and paste here your logs, such as:
+> Describe and paste here your logs, such as:
 
 ```
 /home/usr/bin/foo: line 3: [: missing `]'
@@ -41,4 +39,4 @@ Describe and paste here your logs, such as:
 
 ## Screenshot (Optional)
 
-Upload screenshots that can help with the problem.
+> Upload screenshots that can help with the problem.
