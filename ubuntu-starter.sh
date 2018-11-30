@@ -1,27 +1,5 @@
 #!/bin/bash
 
-apt_packages=(
-	"curl"
-	"git" 
-	"zsh" 
-	"gparted"
-    "gnome-tweak-tool"
-    "ubuntu-restricted-extras"
-    "libavcodec-extra"
-    "libdvd-pkg"
-    "terminator"
-    "vlc"
-)
-
-snap_packages=(
-    "spotify"
-    "vscode"
-)
-
-deb_uri=(
-    "https://github.com/meetfranz/franz/releases/download/v5.0.0-beta.18/franz_5.0.0-beta.18_amd64.deb"
-)
-
 update_and_upgrade() {
     sudo apt update -y
     sudo apt upgrade -y
@@ -41,7 +19,7 @@ update_and_upgrade
 # apt packages
 echo "Installing new packages..."
 
-for pkg in "${apt_packages[*]}"; do
+for pkg in cat packages.apt; do
 	if ! package_exists $pkg; then
 		sudo apt install $pkg -y
 	fi
@@ -50,7 +28,7 @@ done
 # Snap Packages
 echo "Installing snap packages..."
 
-for snap in "${snap_packages[*]}"; do
+for snap in cat packages.snap; do
     if ! package_exists $snap; then
 		sudo snap install $snap --classic
 	fi
@@ -59,7 +37,7 @@ done
 # deb packages
 echo "Installing deb packages..."
 
-for uri in "${deb_uri[*]}"; do
+for uri in cat deb_uris; do
     curl -sL -o/var/cache/apt/archives/package.deb $uri && sudo dpkg -i /var/cache/apt/archives/package.deb
 done
 
