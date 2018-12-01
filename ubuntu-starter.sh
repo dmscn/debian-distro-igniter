@@ -47,9 +47,11 @@ done
 
 # SSH Setup
 echo ">>> Creating SSH Keys"
-ssh-keygen
-eval `ssh-agent`
-ssh-add ~/.ssh/id_rsa
+if [ ! "cat ~/.ssh/id_rsa" ]; then
+    ssh-keygen
+    eval `ssh-agent`
+    ssh-add ~/.ssh/id_rsa
+fi
 
 
 # OhMyZsh
