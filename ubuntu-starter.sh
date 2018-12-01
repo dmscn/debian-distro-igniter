@@ -53,6 +53,12 @@ for uri in `cat deb_uris`; do
 done
 
 
+# SSH Setup
+ssh-keygen
+eval `ssh-agent`
+ssh-add ~/.ssh/id_rsa
+
+
 # OhMyZsh
 echo ">>> Installing OhMyZsh"
 
