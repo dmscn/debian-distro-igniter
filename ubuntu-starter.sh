@@ -45,15 +45,8 @@ for snap in `cat packages.snap`; do
 done
 
 
-# deb packages
-echo ">>> Installing deb packages..."
-
-for uri in `cat deb_uris`; do
-    curl -sL -o/var/cache/apt/archives/package.deb $uri && sudo dpkg -i /var/cache/apt/archives/package.deb
-done
-
-
 # SSH Setup
+echo ">>> Creating SSH Keys"
 ssh-keygen
 eval `ssh-agent`
 ssh-add ~/.ssh/id_rsa
