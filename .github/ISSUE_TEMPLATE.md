@@ -6,8 +6,8 @@
 
 # This is issue is for a:
 
-- [] Bug
-- [] Feature
+- [ ] Bug
+- [ ] Feature
 
 ## Behavior
 
