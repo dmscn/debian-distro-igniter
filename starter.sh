@@ -1,10 +1,10 @@
 #!/bin/bash
 
 update_and_upgrade() {
-    sudo apt update -y
-    sudo apt upgrade -y
-    sudo apt autoremove -y
-    sudo apt autoclean -y
+    apt update -y
+    apt upgrade -y
+    apt autoremove -y
+    apt autoclean -y
 }
 
 create_default_aliases() {
@@ -32,7 +32,7 @@ for pkg in `cat packages/packages.apt`; do
     if package_exists $pkg; then
         echo "$pkg is already installed."
     else
-        sudo apt-get install $pkg -y
+        apt-get install $pkg -y
     fi
 done
 
@@ -44,7 +44,7 @@ for snap in `cat packages/packages.snap`; do
     if package_exists $snap; then
         echo "$snap is already installed."
     else
-		sudo snap install $snap -y
+		snap install $snap -y
 	fi
 done
 
@@ -75,10 +75,10 @@ if package_exists google-chrome-stable; then
     echo "Google Chrome is already installed."
 else
     echo ">>> Installing Google Chrome"
-	wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-	sudo sh -c 'echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
-	sudo apt-get update
-	sudo apt-get install google-chrome-stable -y
+	wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+	sh -c 'echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+	apt-get update
+	apt-get install google-chrome-stable -y
 fi
 
 
