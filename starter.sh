@@ -28,11 +28,11 @@ update_and_upgrade
 # apt packages
 echo ">>> Looking for new packages..."
 
-for pkg in `cat packages.apt`; do
+for pkg in `cat packages/packages.apt`; do
     if package_exists $pkg; then
         echo "$pkg is already installed."
     else
-        sudo apt-get install $pkg
+        sudo apt-get install $pkg -y
     fi
 done
 
@@ -40,11 +40,11 @@ done
 # Snap Packages
 echo ">>> Looking for new snap packages..."
 
-for snap in `cat packages.snap`; do
+for snap in `cat packages/packages.snap`; do
     if package_exists $snap; then
         echo "$snap is already installed."
     else
-		sudo snap install $snap
+		sudo snap install $snap -y
 	fi
 done
 
@@ -78,5 +78,12 @@ else
 	wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 	sudo sh -c 'echo "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
 	sudo apt-get update
-	sudo apt-get install google-chrome-stable
+	sudo apt-get install google-chrome-stable -y
 fi
+
+
+## Style and Themes
+# Terminator Dracula Theme
+mkdir ~/.config/terminator
+touch ~/.config/terminator/config
+echo "$(cat dracula-theme-terminator)" > ~/.config/terminator/config
