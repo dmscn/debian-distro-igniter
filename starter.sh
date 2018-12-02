@@ -28,7 +28,7 @@ update_and_upgrade
 # apt packages
 echo ">>> Looking for new packages..."
 
-for pkg in `cat packages.apt`; do
+for pkg in `cat packages/packages.apt`; do
     if package_exists $pkg; then
         echo "$pkg is already installed."
     else
@@ -40,7 +40,7 @@ done
 # Snap Packages
 echo ">>> Looking for new snap packages..."
 
-for snap in `cat packages.snap`; do
+for snap in `cat packages/packages.snap`; do
     if package_exists $snap; then
         echo "$snap is already installed."
     else
