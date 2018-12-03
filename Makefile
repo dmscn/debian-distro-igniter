@@ -11,13 +11,14 @@ welcome:
 	@printf "\033[35m/_____/_/____/\__/_/   \____/   /____/\__/\__,_/_/   \__/\___/_/     	\n"
 	@printf "\033[m																		  	\n"
 
-start: ## Starts CLI
+start: welcome ## Starts CLI
 	## Should start CLI with options (multiple choice): 
 	# Install Nodejs
 	# Install Python
 	# Install Docker
 	# install packages (?) -- maybe give options to retain packages from external file
 	# install snaps (?)	   -- maybe give options to retain packages from external file
+	@sh starter.sh
 
 
 install-nodejs: ## Start NodeJS installation
