@@ -24,7 +24,7 @@ echo ">>> Upating system..."
 
 update_and_upgrade
 
-
+### TODO: EXTRACT ME TO ANOTHER FILE
 # apt packages
 echo ">>> Looking for new packages..."
 
@@ -36,7 +36,7 @@ for pkg in `cat packages/packages.apt`; do
     fi
 done
 
-
+### TODO: EXTRACT ME TO ANOTHER FILE
 # Snap Packages
 echo ">>> Looking for new snap packages..."
 
@@ -84,6 +84,8 @@ fi
 
 ## Style and Themes
 # Terminator Dracula Theme
-mkdir ~/.config/terminator
-touch ~/.config/terminator/config
-echo "$(cat dracula-theme-terminator)" > ~/.config/terminator/config
+if package_exists terminator; then
+    mkdir ~/.config/terminator
+    touch ~/.config/terminator/config
+    echo "$(cat static/dracula-theme-terminator)" > ~/.config/terminator/config
+fi
