@@ -11,4 +11,4 @@ Give it exec permition
 
 Run the script
  
-```$ ./ubuntu-stater.sh```
+```$ ./stater.sh```
