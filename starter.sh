@@ -21,32 +21,7 @@ package_exists() {
 
 # Upgrading system before anything
 echo ">>> Upating system..."
-
 update_and_upgrade
-
-### TODO: EXTRACT ME TO ANOTHER FILE
-# apt packages
-echo ">>> Looking for new packages..."
-
-for pkg in `cat packages/packages.apt`; do
-    if package_exists $pkg; then
-        echo "$pkg is already installed."
-    else
-        apt-get install $pkg -y
-    fi
-done
-
-### TODO: EXTRACT ME TO ANOTHER FILE
-# Snap Packages
-echo ">>> Looking for new snap packages..."
-
-for snap in `cat packages/packages.snap`; do
-    if package_exists $snap; then
-        echo "$snap is already installed."
-    else
-		snap install $snap -y
-	fi
-done
 
 
 # SSH Setup
