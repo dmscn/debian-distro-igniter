@@ -3,11 +3,9 @@
 ## Using 
 Clone this repo
  
-```$ git clone https://github.com/dmscn/debian-distro-starter.git```
-
-Give it exec permition
- 
-```$ chmod +x ./ubuntu-starter.sh```
+```bash
+$ git clone https://github.com/dmscn/debian-distro-starter.git
+```
 
 Run the script
  
