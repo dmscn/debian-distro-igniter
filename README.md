@@ -11,4 +11,6 @@ Give it exec permition
 
 Run the script
  
-```$ ./stater.sh```
+```bash
+$ make start
+```
