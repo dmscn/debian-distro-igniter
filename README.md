@@ -1,9 +1,9 @@
-# Debian Distro Starter
+# Debian Distro Igniter
 
 ## Using 
 Clone this repo
  
-```$ git clone https://github.com/dmscn/debian-distro-starter.git```
+```$ git clone https://github.com/dmscn/debian-distro-igniter.git```
 
 Give it exec permition
  
