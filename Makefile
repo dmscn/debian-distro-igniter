@@ -43,6 +43,9 @@ install-python: ## Start Python environment installation
 install-docker: ## Start Docker environment installation
 	@chmod +x ${SCRIPTS}/docker-installation.sh
 	@sh ${SCRIPTS}/docker-installation.sh
+
+install-vscode-extensions:
+	@sh ${SCRIPTS}/vscode-install-extensions.sh
                                                                
 help: welcome
 	@printf "\033[1;33m This are the commands you can use 🤔\n\n"
