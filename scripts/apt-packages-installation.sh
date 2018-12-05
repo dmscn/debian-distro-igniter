@@ -1,5 +1,9 @@
 #!/bin/bash
 
+package_exists() {
+    dpkg -s "$1" >/dev/null 2>&1
+}
+
 echo ">>> Looking for new packages..."
 
 for pkg in `cat packages/packages.apt`; do
