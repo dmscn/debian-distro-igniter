@@ -19,3 +19,6 @@ GLOBAL_PACKAGES="cat ../packages/packages.global.npm"
 npm install -g "$GLOBAL_PACKAGES" -y
 
 echo "export PATH=PATH:$(yarn global bin)" >> ~/.zshrc
+
+# Executing bing-daily-wallpaper
+bing-daily-wallpaper
