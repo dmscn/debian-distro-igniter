@@ -1,14 +1,15 @@
-# Debian Distro Starter
+# Debian Distro Igniter
 
 ## Using 
 Clone this repo
  
-```$ git clone https://github.com/dmscn/debian-distro-starter.git```
 
-Give it exec permition
- 
-```$ chmod +x ./ubuntu-starter.sh```
+```bash
+$ git clone https://github.com/dmscn/debian-distro-igniter.git
+```
 
 Run the script
  
-```$ ./ubuntu-stater.sh```
+```bash
+$ make start
+```
