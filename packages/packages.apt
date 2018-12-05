@@ -2,6 +2,7 @@ curl
 git
 zsh
 gparted
+gnome-shell-extensions
 gnome-tweak-tool
 ubuntu-restricted-extras
 libavcodec-extra
