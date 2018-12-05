@@ -12,12 +12,67 @@ Options:
   -h --help  Display the available commands
   -v --version  Display CLI version
 """
+from __future__ import print_function, unicode_literals
 from docopt import docopt
+from PyInquirer import style_from_dict, Token, prompt
+from pprint import pprint
 
 __version__ = 'v0.0.1'
 
+# style = style_from_dict({
+#     Token.QuestionMark: '#c51162 bold',
+#     Token.Selected: '#c51162',  # default
+#     Token.Pointer: '#7200ca bold',
+#     Token.Instruction: '',  # default
+#     Token.Answer: '#c51162 bold',
+#     Token.Question: '',
+# })
+style = style_from_dict({
+    Token.QuestionMark: '#ff3d00 bold',
+    Token.Selected: '#ff3d00',  # default
+    Token.Pointer: '#ffa06d bold',
+    Token.Instruction: '',  # default
+    Token.Answer: '#00c853 bold',
+
+    Token.Question: '',
+})
+
+questions = [
+    {
+        'type': 'checkbox',
+        'name': 'features',
+        'message': 'Select the features to install',
+        'choices': [
+            {
+                'name': 'APT packages',
+                'checked': True
+            },
+            {
+                'name': 'Snap packages',
+                'checked': True
+            },
+            {
+                'name': 'Node.JS',
+                'checked': True
+            },
+            {
+                'name': 'Python',
+                'checked': True
+            },
+            {
+                'name': 'Docker',
+                'checked': True
+            },
+            
+        ],
+        'validate': lambda answer: 'You must choose at least one topping.' \
+            if len(answer) == 0 else True
+    }
+]
+
 def start():
-    print('start called')
+    features = prompt(questions, style=style)
+    pprint(features)
 
 
 def install(feature):

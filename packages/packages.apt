@@ -1,6 +1,8 @@
 curl
 git
 zsh
+python-pip
+python3-pip
 gparted
 gnome-tweak-tool
 ubuntu-restricted-extras
