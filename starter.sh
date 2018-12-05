@@ -21,32 +21,7 @@ package_exists() {
 
 # Upgrading system before anything
 echo ">>> Upating system..."
-
 update_and_upgrade
-
-
-# apt packages
-echo ">>> Looking for new packages..."
-
-for pkg in `cat packages/packages.apt`; do
-    if package_exists $pkg; then
-        echo "$pkg is already installed."
-    else
-        apt-get install $pkg -y
-    fi
-done
-
-
-# Snap Packages
-echo ">>> Looking for new snap packages..."
-
-for snap in `cat packages/packages.snap`; do
-    if package_exists $snap; then
-        echo "$snap is already installed."
-    else
-		snap install $snap -y
-	fi
-done
 
 
 # SSH Setup
@@ -84,6 +59,8 @@ fi
 
 ## Style and Themes
 # Terminator Dracula Theme
-mkdir ~/.config/terminator
-touch ~/.config/terminator/config
-echo "$(cat dracula-theme-terminator)" > ~/.config/terminator/config
+if package_exists terminator; then
+    mkdir ~/.config/terminator
+    touch ~/.config/terminator/config
+    echo "$(cat static/dracula-theme-terminator)" > ~/.config/terminator/config
+fi

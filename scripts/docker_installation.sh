@@ -1,5 +1,7 @@
 #!/bin/bash
 
+printf "\033[1;34m Starting to install docker 🐋"
+
 # Unninstalling older docker-engines
 apt remove docker docker-engine docker.io -y
 
@@ -24,4 +26,4 @@ apt update
 # Installing the Docker CE
 apt install docker-ce -y
 
-echo "To run docker as a non-root user run 'usermod -aG docker your-user'"
+printf "\033[1;33m ⚠️  To run docker as a non-root user run 'usermod -aG docker your-user'  ⚠️"
