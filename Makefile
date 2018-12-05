@@ -15,15 +15,12 @@ welcome:
 	@printf "\033[0;31m |___/|_/__/\__|_| \___/ |___\__, |_||_||_|\__\___||_|   \n"
 	@printf "\033[0;31m	                     |___/                      				\n"
 	@printf "\033[0m\n"
+	
 
 start: welcome ## Starts CLI
-	## Should start CLI with options (multiple choice): 
-	# Install Nodejs
-	# Install Python
-	# Install Docker
-	# install packages (?) -- maybe give options to retain packages from external file
-	# install snaps (?)	   -- maybe give options to retain packages from external file
-	# @sh starter.sh
+	@printf "\033[0m 🔥😈 The tool to ignite your dev environment 😈🔥\n"
+	@printf "\033[0m\n"
+	@python pycli start
 	@printf "\n\n"
 	@printf "\033[1;32m Please restart your computer to see the changes  🎉\n\n"
 	@printf "\033[0m\n"

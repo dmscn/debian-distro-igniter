@@ -28,9 +28,9 @@ __version__ = 'v0.0.1'
 #     Token.Question: '',
 # })
 style = style_from_dict({
-    Token.QuestionMark: '#ff3d00 bold',
-    Token.Selected: '#ff3d00',  # default
-    Token.Pointer: '#ffa06d bold',
+    Token.QuestionMark: '#ff0000 bold',
+    Token.Selected: '#ff0000',  # default
+    Token.Pointer: '#e254ff bold',
     Token.Instruction: '',  # default
     Token.Answer: '#00c853 bold',
 
