@@ -16,6 +16,7 @@ from __future__ import print_function, unicode_literals
 from docopt import docopt
 from PyInquirer import style_from_dict, Token, prompt
 from pprint import pprint
+import subprocess
 
 __version__ = 'v0.0.1'
 
@@ -73,6 +74,9 @@ questions = [
 def start():
     features = prompt(questions, style=style)
     pprint(features)
+    for feature in features:
+        # subprocess.call("bash-script.sh", shell=True)
+        
 
 
 def install(feature):
