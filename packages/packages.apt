@@ -1,6 +1,8 @@
 curl
 git
 zsh
+python-pip
+python3-pip
 gparted
 gnome-shell-extensions
 gnome-tweak-tool
