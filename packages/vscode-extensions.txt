@@ -1,0 +1,5 @@
+bmewburn.vscode-intelephense-client
+eamodio.gitlens
+ms-python.python
+zhuangtongfa.Material-theme
+peterjausovec.vscode-docker

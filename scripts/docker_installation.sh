@@ -9,7 +9,7 @@ apt remove docker docker-engine docker.io -y
 apt update
 
 # Installing packages to allow apt to use a repository over https
-apt install apt-transport-https ca-certificates software-properties-common -y
+apt install apt-transport-https ca-certificates curl software-properties-common -y
 
 # Add Docker's official GPG key
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
@@ -18,7 +18,10 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
 apt-key fingerprint 0EBFCD88
 
 # Setup stable repository
-add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" -y
+add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable" -y
 
 # Updating again to install the docker
 apt update
@@ -26,4 +29,4 @@ apt update
 # Installing the Docker CE
 apt install docker-ce -y
 
-printf "\033[1;33m ⚠️  To run docker as a non-root user run 'usermod -aG docker your-user'  ⚠️"
+usermod -aG docker $USER
