@@ -17,12 +17,16 @@ welcome:
 	@printf "\033[0m\n"
 	
 
-start: welcome ## Starts CLI
+start: ## Starts CLI
+	@chmod +x prepare-cli.sh
+	@sh prepare-cli.sh
+	@clear
+	@make -s welcome
 	@printf "\033[0m 🔥😈 The tool to ignite your dev environment 😈🔥\n"
 	@printf "\033[0m\n"
 	@python pycli start
 	@printf "\n\n"
-	@printf "\033[1;32m Please restart your computer to see the changes  🎉\n\n"
+	@printf "\033[1;32m Please restart your computer to see the changes 🎉\n\n"
 	@printf "\033[0m\n"
 
 install-packages: ## Install apt packages
@@ -42,7 +46,11 @@ install-docker: ## Start Docker environment installation
 	@sh ${SCRIPTS}/docker-installation.sh
 
 install-vscode-extensions:
+	@chmod +x ${SCRIPTS}vscode-install-extensions.sh
 	@sh ${SCRIPTS}/vscode-install-extensions.sh
+
+run-test-container: ## Test App inside a clean container
+	@(cd test ; make -s start )
                                                                
 help: welcome
 	@printf "\033[1;33m This are the commands you can use 🤔\n\n"

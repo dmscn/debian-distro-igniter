@@ -2,85 +2,46 @@
 
 Usage:
   pycli start
-  pycli -i|--install <feature>
   pycli -h|--help
   pycli -v|--version
 
 Options:
   start Starts the CLI
-  -i --install <feature>  Feature you want to install
   -h --help  Display the available commands
   -v --version  Display CLI version
 """
 from __future__ import print_function, unicode_literals
 from docopt import docopt
-from PyInquirer import style_from_dict, Token, prompt
-from pprint import pprint
+import os
+import glob
+import cutie
 import subprocess
 
 __version__ = 'v0.0.1'
 
-# style = style_from_dict({
-#     Token.QuestionMark: '#c51162 bold',
-#     Token.Selected: '#c51162',  # default
-#     Token.Pointer: '#7200ca bold',
-#     Token.Instruction: '',  # default
-#     Token.Answer: '#c51162 bold',
-#     Token.Question: '',
-# })
-style = style_from_dict({
-    Token.QuestionMark: '#ff0000 bold',
-    Token.Selected: '#ff0000',  # default
-    Token.Pointer: '#e254ff bold',
-    Token.Instruction: '',  # default
-    Token.Answer: '#00c853 bold',
+# Gettin script names by creation time
+scripts = glob.glob("scripts/*.sh")
+scripts.sort(key=lambda x: os.path.getmtime(x))
 
-    Token.Question: '',
-})
-
-questions = [
-    {
-        'type': 'checkbox',
-        'name': 'features',
-        'message': 'Select the features to install',
-        'choices': [
-            {
-                'name': 'APT packages',
-                'checked': True
-            },
-            {
-                'name': 'Snap packages',
-                'checked': True
-            },
-            {
-                'name': 'Node.JS',
-                'checked': True
-            },
-            {
-                'name': 'Python',
-                'checked': True
-            },
-            {
-                'name': 'Docker',
-                'checked': True
-            },
-            
-        ],
-        'validate': lambda answer: 'You must choose at least one topping.' \
-            if len(answer) == 0 else True
-    }
+feature_options = [
+    "Python",
+    "Snap Packages",
+    "Docker"
+    "APT Packages",
+    "Node.JS",
+    "VSCode Extensions"
 ]
 
 def start():
-    features = prompt(questions, style=style)
-    pprint(features)
-    # for feature in features:
-    # subprocess.call("bash-script.sh", shell=True)
-        
-
-
-def install(feature):
-    pass
+    print(" > Select the features you want to install (<space> to select, <Enter> to confirm)\n")
+    features_indices = cutie.select_multiple(feature_options, hide_confirm=True)
+    features = [
+        feature_index for feature_index, feature
+        in enumerate(feature_options)
+        if feature_index in features_indices 
+    ]
+    for feature_index in features:
+        subprocess.call(scripts[feature_index], shell=True)
 
 
 if __name__ == '__main__':

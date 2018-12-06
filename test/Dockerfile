@@ -4,4 +4,4 @@ FROM ubuntu:18.04
 	EXPOSE $PORT
 	WORKDIR $APPDIR
 	COPY . $APPDIR
-	RUN apt-get update && apt-get install make -y
+	RUN apt-get update && apt-get install make python -y
