@@ -74,8 +74,8 @@ questions = [
 def start():
     features = prompt(questions, style=style)
     pprint(features)
-    for feature in features:
-        # subprocess.call("bash-script.sh", shell=True)
+    # for feature in features:
+    # subprocess.call("bash-script.sh", shell=True)
         
 
 
