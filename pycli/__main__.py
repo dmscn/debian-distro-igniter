@@ -79,7 +79,7 @@ def start():
         in enumerate(feature_options)
         if feature.get("name") in answers
     ]
-    subprocess.call("../starter.shgaa", shell=True)
+    subprocess.call("../starter.sh", shell=True)
     for feature_index in features:
         subprocess.call(scripts[feature_index], shell=True)
 
