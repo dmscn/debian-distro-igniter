@@ -4,7 +4,7 @@
 build-container-image: ## Creates ubuntu container
 	@docker build ../ -f Dockerfile -t testing
 
-run: build-container-image ## Roda a aplicação
+start: build-container-image ## Roda a aplicação
 	@docker run -it --rm testing bash
 
 help:
