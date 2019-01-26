@@ -11,3 +11,5 @@ libavcodec-extra
 libdvd-pkg
 terminator
 vlc
+net-tools
+lsof
