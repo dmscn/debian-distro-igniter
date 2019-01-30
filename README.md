@@ -1,4 +1,5 @@
 # Debian Distro Igniter
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)]()
 
 ## Using 
 Clone this repo
