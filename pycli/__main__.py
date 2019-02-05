@@ -19,45 +19,50 @@ import subprocess
 
 __version__ = 'v0.0.1'
 
-# Gettin script names by creation time
+# Getting scripts
 scripts = glob.glob("scripts/*.sh")
-scripts.sort(key=lambda x: os.path.getmtime(x))
 
 feature_options = [
     {
         "name": "Python",
-        "checked": True
+        "checked": True,
+        "script": "python_installation.sh"
     },
     {
         "name": "Snap Packages",
-        "checked": True
+        "checked": True,
+        "script": "snap_packages_installation.sh"
     },
     {
         "name": "Docker",
-        "checked": True
-    },
-    {
-        "name": "APT Packages",
-        "checked": True
+        "checked": True,
+        "script": "docker_installation.sh"
     },
     {
         "name": "Node.JS",
-        "checked": True
+        "checked": True.
+        "script": "nodejs_installation.sh"
     },
     {
         "name": "VSCode Extensions",
-        "checked": True
-    }
+        "checked": True,
+        "script": "vscode_extensions_installation.sh"
+    },
+    {
+        "name": "Theme",
+        "checked": True,
+        "script": "style_installation.sh"
+    },
 ]
 
 checkbox_input = [
     {
-        'type': 'checkbox',
-        'message': 'Select features to install',
-        'name': 'features',
-        'choices': feature_options,
-        'validate': lambda answer: 'You must choose at least one feature.' \
-            if len(answer) == 0 else True
+      'type': 'checkbox',
+      'message': 'Select features to install',
+      'name': 'features',
+      'choices': feature_options,
+      'validate': lambda answer: 'You must choose at least one feature.' \
+        if len(answer) == 0 else True
     }
 ]
 

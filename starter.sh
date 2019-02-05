@@ -1,10 +1,10 @@
 #!/bin/bash
 
 update_and_upgrade() {
-    apt update -y
-    apt upgrade -y
-    apt autoremove -y
-    apt autoclean -y
+    apt-get update -y
+    apt-get upgrade -y
+    apt-get autoremove -y
+    apt-get autoclean -y
 }
 
 create_default_aliases() {
@@ -18,10 +18,21 @@ package_exists() {
     dpkg -s "$1" >/dev/null 2>&1
 }
 
-
 # Upgrading system before anything
 echo ">>> Upating system..."
 update_and_upgrade
+
+
+echo ">>> Looking for new packages..."
+
+# Installing basic requirements
+for pkg in `cat packages/packages.apt`; do
+    if package_exists $pkg; then
+        echo "$pkg is already installed."
+    else
+        apt-get install $pkg -y
+    fi
+done
 
 
 # SSH Setup
