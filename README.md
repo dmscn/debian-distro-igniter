@@ -13,8 +13,8 @@ Clone this repo
 $ git clone https://github.com/dmscn/debian-distro-igniter.git
 ```
 
-Run the script
+Run the script as sudo
  
 ```bash
-$ make start
+$ sudo make start
 ```
