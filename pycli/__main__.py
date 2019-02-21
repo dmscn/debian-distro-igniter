@@ -31,6 +31,11 @@ feature_options = [
         "script": "mysql_installation.sh"
     },
     {
+        "name": "Redis",
+        "checked": True,
+        "script": "redis_installation.sh"
+    },
+    {
         "name": "Snap Packages",
         "checked": True,
         "script": "snap_packages_installation.sh"
