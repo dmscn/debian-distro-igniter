@@ -1,0 +1,6 @@
+{
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 4,
+  "python.formatting.autopep8Path": "autopep8"
+}

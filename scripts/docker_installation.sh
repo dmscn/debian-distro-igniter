@@ -9,7 +9,7 @@ apt remove docker docker-engine docker.io -y
 apt update
 
 # Installing packages to allow apt to use a repository over https
-apt install apt-transport-https ca-certificates curl software-properties-common -y
+apt install apt-transport-https ca-certificates software-properties-common -y
 
 # Add Docker's official GPG key
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
