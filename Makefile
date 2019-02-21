@@ -23,7 +23,7 @@ start: ## Starts CLI
 	@printf "\033[0m\n"
 	@python pycli start
 	@clear
-	@make welcome
+	@make -s welcome
 	@printf "\n\n"
 	@printf "\033[1;32m Please restart your computer to see the changes 🎉\n\n"
 	@printf "\033[0m\n"

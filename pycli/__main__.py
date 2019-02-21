@@ -84,13 +84,14 @@ def start():
     answers = prompt(checkbox_input, style=checkbox_input_style).get(
         'features', [])
     features = [
-        feature_index for feature_index, feature
+        feature for feature_index, feature
         in enumerate(feature_options)
         if feature.get("name") in answers
     ]
-    subprocess.call("../starter.sh", shell=True)
+    # subprocess.call("./starter.sh", shell=True)
     for feature in features:
-        subprocess.call('../scripts/' + feature.script, shell=True)
+        scriptUrl = './scripts/' + feature.get('script', '')
+        subprocess.call(scriptUrl, shell=True)
 
 
 if __name__ == '__main__':

@@ -2,7 +2,7 @@
 apt-get update
 
 # Installing MySQL server
-apt-get install myslq-server
+apt-get install mysql-server -y
 
 # Opening mysql secure installation iterative CLI
 mysql_secure_installation
