@@ -19,9 +19,6 @@ import subprocess
 
 __version__ = 'v0.0.1'
 
-# Getting scripts
-scripts = glob.glob("scripts/*.sh")
-
 feature_options = [
     {
         "name": "Python",
@@ -87,8 +84,8 @@ def start():
         if feature.get("name") in answers
     ]
     subprocess.call("../starter.sh", shell=True)
-    for feature_index in features:
-        subprocess.call(scripts[feature_index], shell=True)
+    for feature in features:
+        subprocess.call('../scripts/' + feature.script, shell=True)
 
 
 if __name__ == '__main__':
