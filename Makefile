@@ -5,17 +5,14 @@ PACKAGES := ./packages
 SCRIPTS := ./scripts
 
 welcome:
-	@printf "\033[0;31m																													\n"
-	@printf "\033[0;31m	 (                        (                             \n"
-	@printf "\033[0;31m )\ )          )          )\ )                )          \n"
-	@printf "\033[0;31m(()/( (     ( /((        (()/((  (      (  ( /(  (  (    \n"
-	@printf "\033[0;31m /(_)))\ (  )\())(   (    /(_))\))( (   )\ )\())))\ )(   \n"
-	@printf "\033[0;31m(_))_((_))\(_))(()\  )\  (_))((_))\ )\ |(_|_))//((_|()\  \n"
-	@printf "\033[0;31m |   \(_|(_) |_ ((_)((_) |_ _|(()(_)(_/((_) |_(_))  ((_) \n"
-	@printf "\033[0;31m | |) | (_-<  _| '_/ _ \  | |/ _\` | ' \)) |  _/ -_)| '_|\n"
-	@printf "\033[0;31m |___/|_/__/\__|_| \___/ |___\__, |_||_||_|\__\___||_|   \n"
-	@printf "\033[0;31m	                     |___/                      				\n"
-	@printf "\033[0m\n"
+	@printf "\033[0;31m \n"
+	@printf "\033[0;31m     ____  _      __                ____            _ __            		\n"
+	@printf "\033[0;31m    / __ \\(_)____/ /__________     /  _/___ _____  (_) /____  _____ 	\n"
+	@printf "\033[0;31m   / / / / / ___/ __/ ___/ __ \\    / // __ \`/ __ \\/ / __/ _ \\/ ___/ 	\n"
+	@printf "\033[0;31m  / /_/ / (__  ) /_/ /  / /_/ /  _/ // /_/ / / / / / /_/  __/ /     		\n"
+	@printf "\033[0;31m /_____/_/____/\\__/_/   \\____/  /___/\\__, /_/ /_/_/\\__/\\___/_/      \n"
+	@printf "\033[0;31m                                    /____/                          		\n"
+	@printf "\033[0;31m \n"
 	
 
 start: ## Starts CLI
@@ -30,26 +27,6 @@ start: ## Starts CLI
 	@printf "\n\n"
 	@printf "\033[1;32m Please restart your computer to see the changes 🎉\n\n"
 	@printf "\033[0m\n"
-
-install-packages: ## Install apt packages
-	@chmod +x ${SCRIPTS}/apt-packages-installation.sh
-	@sh ${SCRIPTS}/apt-packages-installation.sh
-
-install-nodejs: ## Start NodeJS installation
-	@chmod +x ${SCRIPTS}/nodejs-installation.sh
-	@sh ${SCRIPTS}/nodejs-installation.sh
-
-install-python: ## Start Python environment installation
-	@chmod +x ${SCRIPTS}/python-installation.sh
-	@sh ${SCRIPTS}/python-installation.sh
-
-install-docker: ## Start Docker environment installation
-	@chmod +x ${SCRIPTS}/docker-installation.sh
-	@sh ${SCRIPTS}/docker-installation.sh
-
-install-vscode-extensions:
-	@chmod +x ${SCRIPTS}vscode-install-extensions.sh
-	@sh ${SCRIPTS}/vscode-install-extensions.sh
 
 run-test-docker-image: build-test-docker-image ## Starts the application in test container
 	@docker run -it --rm  --name debian-distro-ignter -p ${PORT}:8080 dmscn/debian-distro-ignter 
