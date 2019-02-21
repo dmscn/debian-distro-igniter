@@ -40,7 +40,7 @@ feature_options = [
     },
     {
         "name": "Node.JS",
-        "checked": True.
+        "checked": True,
         "script": "nodejs_installation.sh"
     },
     {
@@ -57,15 +57,16 @@ feature_options = [
 
 checkbox_input = [
     {
-      'type': 'checkbox',
-      'message': 'Select features to install',
-      'name': 'features',
-      'choices': feature_options,
-      'validate': lambda answer: 'You must choose at least one feature.' \
+        'type': 'checkbox',
+        'message': 'Select features to install',
+        'name': 'features',
+        'choices': feature_options,
+        'validate': lambda answer: 'You must choose at least one feature.'
         if len(answer) == 0 else True
     }
 ]
 
+# Styling the CLI
 checkbox_input_style = style_from_dict({
     Token.Separator: '#cc5454',
     Token.QuestionMark: '#673ab7 bold',
@@ -78,7 +79,8 @@ checkbox_input_style = style_from_dict({
 
 
 def start():
-    answers = prompt(checkbox_input, style=checkbox_input_style).get('features', [])
+    answers = prompt(checkbox_input, style=checkbox_input_style).get(
+        'features', [])
     features = [
         feature_index for feature_index, feature
         in enumerate(feature_options)
