@@ -6,7 +6,7 @@
 :fire: Fire up the build of your development environment with this repo.
 
 ## Using 
-Clone this repo
+Clone this repo or download the .zip
  
 
 ```bash
