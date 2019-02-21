@@ -26,6 +26,11 @@ feature_options = [
         "script": "python_installation.sh"
     },
     {
+        "name": "MySQL",
+        "checked": True,
+        "script": "mysql_installation.sh"
+    },
+    {
         "name": "Snap Packages",
         "checked": True,
         "script": "snap_packages_installation.sh"
