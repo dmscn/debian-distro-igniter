@@ -19,14 +19,16 @@ import subprocess
 
 __version__ = 'v0.0.1'
 
-# Getting scripts
-scripts = glob.glob("scripts/*.sh")
-
 feature_options = [
     {
         "name": "Python",
         "checked": True,
         "script": "python_installation.sh"
+    },
+    {
+        "name": "MySQL",
+        "checked": True,
+        "script": "mysql_installation.sh"
     },
     {
         "name": "Snap Packages",
@@ -82,13 +84,14 @@ def start():
     answers = prompt(checkbox_input, style=checkbox_input_style).get(
         'features', [])
     features = [
-        feature_index for feature_index, feature
+        feature for feature_index, feature
         in enumerate(feature_options)
         if feature.get("name") in answers
     ]
-    subprocess.call("../starter.sh", shell=True)
-    for feature_index in features:
-        subprocess.call(scripts[feature_index], shell=True)
+    # subprocess.call("./starter.sh", shell=True)
+    for feature in features:
+        scriptUrl = './scripts/' + feature.get('script', '')
+        subprocess.call(scriptUrl, shell=True)
 
 
 if __name__ == '__main__':
